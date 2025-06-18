@@ -5,11 +5,14 @@ import { useTheme } from "./hooks/theme";
 import { useEffect } from "react";
 import { useAuth } from "./hooks/auth";
 import { Alert } from "./components/Alert";
+import { Button } from "./components/Button";
+import { useAlert } from "./hooks/alert";
 
 
 function App() {
   const { handleAuthenticateUser } = useAuth();
   const { handleInitTheme, theme } = useTheme();
+  const {show, handleToggleAlert} = useAlert()
 
   useEffect(() => {
     handleAuthenticateUser();
@@ -20,7 +23,8 @@ function App() {
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
         <h1>Ola mundo</h1>
-        <Alert show={true} setShow={()=>{}} type="error" title="Erro ao enviar os dados"/>
+        <Alert show={show} setShow={handleToggleAlert} type="error" title="Erro ao enviar os dados"/>
+        <Button onClick={handleToggleAlert} name="Salvar" />
     </ThemeProvider>
   );
 }

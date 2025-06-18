@@ -7,8 +7,12 @@
     text-decoration: none;
     color: inherit;}
 body {
-    margin: 0;
+    margin: 10px;
     font-family: 'Nunito', sans-serif;
+}
+
+button {
+    border: none;
 }
 
 /* Custom Text Selection Color */
@@ -42,3 +46,4 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #5049e2;
 }
+

@@ -7,13 +7,10 @@ interface Props {
 }
 
 export const Box = styled.div<Props>`
-  display: flex;
-  gap: .8rem;
   position: fixed;
   top: 1rem;
   right: 1rem;
   z-index:1;
-  padding: 1rem;
   background-color: ${props => props.type === 'error'? props.theme.COLORS.danger: props.theme.COLORS.success};
   border-radius: 4px;
   transition: transform .6s, opacity .3s ;
@@ -27,10 +24,20 @@ export const Box = styled.div<Props>`
   }
 `;
 
+export const Container = styled.div`
+  position: relative;
+  .conteudo{
+    display: flex;
+    gap: .8rem;
+    padding: 1rem
+  }
+`;
+
 export const Content = styled.div`
   display:flex;
   flex-direction: column;
   gap:10px;
+  position: relative;
 `;
 
 export const Title = styled.span`
@@ -38,4 +45,12 @@ export const Title = styled.span`
   font-size: ${props => props.theme.FONT_SIZES.sm};
   font-weight: 700;
   text-transform: capitalize;
+`;
+
+export const BarraTempo = styled.div<{w:number}>`
+  width: ${props => props.w + '%'};
+  height: 4px;
+  background-color: #fddc47;
+  transition: width 0.1s linear;
+  border-radius: 0 0 4px 4px;
 `;
